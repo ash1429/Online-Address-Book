@@ -1,5 +1,24 @@
 <% include partials/header %>
 
-<h1>This should be contact Page</h1>
+<h1>Hello <%= v_contacts[0].owner.name %></h1>
+
+
+<div class="container">
+  <label >Contacts</label>
+  <hr>
+  <% v_contacts[0].acquiantances.forEach(acquiantance => { %>
+  <div class="row">
+    <div class="col-md-8">
+      <p><%= acquiantance.name %> </p>    
+    </div>
+    <div class="col-md-4">
+      <a href="/show/<%= acquiantance._id %>" class="btn btn-primary pull-right">Details</a>
+    </div>
+    
+  </div>
+  <% }); %>
+
+  
+</div><!-- container ends -->
 
 <% include partials/footer %>

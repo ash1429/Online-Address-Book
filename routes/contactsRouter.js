@@ -4,8 +4,17 @@ var middleware = require('../middleware');
 var Contact = require('../models/contact');
 
 router.get('/', (req, res, next) => {
-  res.render('contacts');
+  Contact.find({'owner.name': req.user.username}, (err,contacts)=>{
+    if(err) console.log(err);
+    else{
+      // console.log(contacts);
+      res.render('contacts', {v_contacts: contacts});
+    }
+    
+  });
 });
+
+
 
 router.post('/', (req, res, next) => {
   var newAcquaintance = {
@@ -34,8 +43,9 @@ router.post('/', (req, res, next) => {
       a_contact.save((err, a_contact) => {
         if (err) console.log(err);
         else {
-          console.log(a_contact);
-          res.send('posting....');
+          // console.log(a_contact);
+          // res.send('posting....');
+          res.redirect('/contacts');
         }
       });
     }

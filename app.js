@@ -15,6 +15,8 @@ var middleware = require('./middleware');
 
 var indexRouter = require('./routes/indexRouter');
 var contactRouter = require('./routes/contactsRouter');
+var showRouter = require('./routes/showRouter');
+
 
 const url = 'mongodb://localhost:27017/addressBook';
 mongoose.connect(url, { useNewUrlParser: true }, function (err) {
@@ -29,14 +31,14 @@ mongoose.connect(url, { useNewUrlParser: true }, function (err) {
 // ================
 //cleanUp
 // ================
-User.deleteMany({}, (err) => {
-  if (err) console.log(err);
-  else console.log("cleaned up user");
-});
-Contact.deleteMany({}, (err) => {
-  if (err) console.log(err);
-  else console.log("cleaned up contact");
-});
+// User.deleteMany({}, (err) => {
+//   if (err) console.log(err);
+//   else console.log("cleaned up user");
+// });
+// Contact.deleteMany({}, (err) => {
+//   if (err) console.log(err);
+//   else console.log("cleaned up contact");
+// });
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -66,6 +68,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/contacts',middleware.isLoggedIn, contactRouter);
+app.use('/show/:id_details',middleware.isLoggedIn, showRouter);
 
 
 
