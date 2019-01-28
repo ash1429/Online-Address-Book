@@ -1,0 +1,18 @@
+Design and develop an address book having the following criteria
+
+•	To use the system users have to register using his/her user name and password.
+  >user model
+    >unique username 
+
+•	After logging in user can add, edit or delete address book entry.
+  >>>contacts/:id
+  >>>show contacts
+  >Add a contact
+•	Each address entry in address book should contain commonly used fields (full name, nick name, multiple phone no., address, website, date of birth etc.). 
+•	Address book should be searchable based on address fields.
+•	The Application should have option to download all contact information in CSV format
+•	Database design should follow database normalization criteria.
+
+
+ > Log in Message
+ > if you have time - Add admin

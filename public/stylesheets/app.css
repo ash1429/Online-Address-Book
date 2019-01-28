@@ -1,0 +1,37 @@
+.new_HeadContain
+{
+  max-width: 500px;
+}
+
+#jumb_contain{
+  width: 80%;
+}
+
+.new_HeadContain p{
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* turning off spinner */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.alert{
+  font-size: 18px;
+}
+
+#add_btn{
+  font-size: 20px;
+  padding: 2px 10px;
+}
+
+#parent{
+  padding-top: 14px;
+}
+
+.new_HeadContain label{
+  font-size: 16px;
+}
