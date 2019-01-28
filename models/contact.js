@@ -1,10 +1,5 @@
 var mongoose = require("mongoose");
-
-var acquiantanceSchema = new mongoose.Schema({
-  name: {type: String},
-  email: String,
-  phone: [Number]
-});
+var Acquiantance = require("./acquiantance");
 
 var contactSchema = new mongoose.Schema({
   owner:{
@@ -15,7 +10,7 @@ var contactSchema = new mongoose.Schema({
     },
     name: { type: String, required: true },
   },
-  acquiantances: [acquiantanceSchema]
+  acquiantances: [Acquiantance.schema]
 });
 
 module.exports = mongoose.model("Contact", contactSchema);
