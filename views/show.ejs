@@ -1,6 +1,29 @@
 <% include partials/header %>
 
-This is show page
+<div class="container cont_container">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="lead">Name: <%= v_acquiantance.name %></p>
+      <p class="lead">Email: <%= v_acquiantance.email %></p>
+      <div class="row">
+        <div style="padding-left: 6px" class="col-md-6">
+          <p class="lead">Phone:</p>
+        </div>
+            
+        <div class="col-md-6" style="padding-left: 6px">
+        <% for(var i = 0; i < v_acquiantance.phone.length; i++ ){ %>
+          <p><%= v_acquiantance.phone[i] %></p>
+         <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <a href="#" class="btn btn-primary">Update</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+</div>
 
 
 <% include partials/footer %>

@@ -1,6 +1,5 @@
 middleware = {};
 
-
 middleware.notLoggedIn = function (req, res, next) {
   if (req.isUnauthenticated()) {
     return next();
@@ -17,7 +16,5 @@ middleware.isLoggedIn = function(req, res, next) {
   req.flash("error", "Please Login First");
   res.redirect('back');
 }
-
-
 
 module.exports = middleware;

@@ -44,10 +44,10 @@ hr{
   margin: 2px;
   border-color: darkgrey;
 }
-.container{
+.cont_container{
   max-width: 60%;
 }
 
-.container label{
+.cont_container label{
   font-size: 1.5em
 }
