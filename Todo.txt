@@ -5,8 +5,9 @@ Design and develop an address book having the following criteria
     >unique username 
 
 •	After logging in user can add, edit or delete address book entry.
-  >>>contacts/:id
-  >>>show contacts
+  >>>searchable
+
+  >>>Download
   >Add a contact
 •	Each address entry in address book should contain commonly used fields (full name, nick name, multiple phone no., address, website, date of birth etc.). 
 •	Address book should be searchable based on address fields.
