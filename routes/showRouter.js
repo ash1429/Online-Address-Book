@@ -8,6 +8,9 @@ var Acquiantance = require('../models/acquiantance');
 
 router.get('/', (req, res, next) => {
   // console.log('requested: ' + req.params.id_details);
+  // console.log('params:' + req.params.username);
+  // console.log('req.user' + req.user.username);
+
   
   Contact.find({ 'owner.name': req.user.username }, (err, contact) => {
     if (err) {

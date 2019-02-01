@@ -17,4 +17,19 @@ middleware.isLoggedIn = function(req, res, next) {
   res.redirect('back');
 }
 
+middleware.checkOwnership = function (req, res, next) {
+  if (req.isAuthenticated()) {
+    if (req.user.username === req.params.username) {
+      next();
+    }
+    else {
+      res.send("You are not authorized");
+    }
+
+  } else {
+    res.send("You need to log in first");
+  }
+}
+
+
 module.exports = middleware;

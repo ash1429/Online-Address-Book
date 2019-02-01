@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/contacts',middleware.isLoggedIn, contactRouter);
-app.use('/show/:id_details',middleware.isLoggedIn, showRouter);
+app.use('/:username/:id_details',middleware.isLoggedIn, middleware.checkOwnership, showRouter);
 
 
 
