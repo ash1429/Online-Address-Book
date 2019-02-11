@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<div class="container cont_container" style="margin-top: 20px">
+  <label>Search Result</label>
+  <hr>
+  <% acquiantances.forEach(acquiantance => { %>
+  <div class="row">
+    <div class="col-md-8">
+      <p><%= acquiantance.name %> </p>
+    </div>
+    <div class="col-md-4">
+      <a href="/<%= v_contacts[0].owner.name%>/<%= acquiantance._id %>" class="btn btn-primary pull-right">Details</a>
+    </div>
+
+  </div>
+  <% }); %>
+
+
+</div><!-- container ends -->

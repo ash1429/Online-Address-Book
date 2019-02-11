@@ -1,9 +1,18 @@
 <% include partials/header %>
-
-<h1>Hello <%= v_contacts[0].owner.name %></h1>
-
-
 <div class="container cont_container">
+  <h1>Hello <%= v_contacts[0].owner.name %></h1>
+  
+  <form action="/contacts" method="GET" class="form-inline" style="float:left">
+    <div class="form-group">
+      <input type="text" name="search" placeholder="Name..." class="form-control">
+      <input type="submit" value="Search" class="btn btn-default">
+    </div>
+  </form>
+  <a href="/download" class="btn btn-warning pull-right">Download All</a>
+</div>
+
+
+<div class="container cont_container" style="margin-top: 20px">
   <label >Contacts</label>
   <hr>
   <% v_contacts[0].acquiantances.forEach(acquiantance => { %>

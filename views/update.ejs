@@ -2,7 +2,7 @@
 <h1>Here we add contact</h1>
 <div class="container new_HeadContain">
   <h1>Update:</h1>
-  <form class="new_Form" action="/show/<%= v_acquiantance._id %>" method="POST">
+  <form class="new_Form" action="/<%=username%>/<%= v_acquiantance._id %>" method="POST">
     <div class="form-group">
       <label for="name">Name: </label>
       <input type="text" class="form-control" name="name" id="name" value="<%= v_acquiantance.name %>" >

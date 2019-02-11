@@ -4,14 +4,37 @@ var middleware = require('../middleware');
 var Contact = require('../models/contact');
 
 router.get('/', (req, res, next) => {
-  Contact.find({'owner.name': req.user.username}, (err,contacts)=>{
-    if(err) console.log(err);
-    else{
-      // console.log(contacts);
-      res.render('contacts', {v_contacts: contacts});
-    }
-    
-  });
+  if(req.query.search){
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Contact.find({ 'owner.name': req.user.username }, (err, contacts) => {
+      if (err) console.log(err);
+      else {
+        // console.log(contacts);
+        var resultAcquiantance = [];
+        
+        contacts[0].acquiantances.forEach(acquiantance => {
+          if(acquiantance.name.match(regex)){
+            resultAcquiantance.push(acquiantance);
+          }
+        });
+        
+        res.render('searchResult', {acquiantances: resultAcquiantance, v_contacts: contacts});
+
+        // res.render('contacts', { v_contacts: contacts });
+      }
+
+    });
+  }
+  else{
+    Contact.find({'owner.name': req.user.username}, (err,contacts)=>{
+      if(err) console.log(err);
+      else{
+        // console.log(contacts);
+        res.render('contacts', {v_contacts: contacts});
+      }
+      
+    });
+  }
 });
 
 
@@ -58,7 +81,9 @@ router.get('/new', (req, res, next) => {
   res.render('new');
 });
 
-
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 
 module.exports = router;

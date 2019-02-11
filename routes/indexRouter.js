@@ -8,6 +8,18 @@ router.get('/', middleware.notLoggedIn, (req, res, next) => {
   res.render('index');
 });
 
+router.get('/download', middleware.isLoggedIn, (req, res, next) => {
+  Contact.find({ 'owner.name': req.user.username }, (err, contacts) => {
+    if (err) console.log(err);
+    else {
+      res.send(contacts);
+    }
+
+  });
+});
+
+
+
 router.get('/signup', middleware.notLoggedIn, (req, res, next) => {
   res.render('signup');
 });
@@ -41,7 +53,6 @@ router.post('/signup', middleware.notLoggedIn, (req, res, next) => {
     }
   });
 });
-
 
 router.get("/login", middleware.notLoggedIn, function (req, res) {
   res.redirect('/')

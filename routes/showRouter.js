@@ -33,7 +33,7 @@ router.get('/', (req, res, next) => {
 
       if(exists){
         var foundAcquiantance = contact[0].acquiantances[index];
-        res.render('show', { v_acquiantance: foundAcquiantance } );
+        res.render('show', { v_acquiantance: foundAcquiantance, username: req.user.username } );
       }else{
         res.send('Something Wrong')
       }
@@ -107,8 +107,9 @@ router.get('/update', (req, res, next) =>{
         var foundAcquiantance = contact[0].acquiantances[index];
         
         // console.log('foundAcquiantance:- ' + foundAcquiantance);
+        console.log("inskldfn: " + req.user.username);
         
-        res.render('update', { v_acquiantance: foundAcquiantance });
+        res.render('update', { v_acquiantance: foundAcquiantance, username: req.user.username });
         // res.send('Updating');
       } else {
         res.send('Something Wrong')
@@ -160,7 +161,7 @@ router.post('/', (req, res, next) => {
           if (err) console.log(err);
           else {
             // console.log(data);
-            res.redirect('/show/' + req.params.id_details);
+            res.redirect('/' + req.user.username + '/' + req.params.id_details);
           }
         });
         // res.send('deleteing');
